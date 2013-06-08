@@ -35,13 +35,23 @@
 
 		<h3>Composer: {{searchComposer}}</h3>
 
+		<div class="composer-form">
+			<label>First Name:</label><input ng-model="new_f_name">
+			<label>Last Name:</label><input ng-model="new_l_name">
+			<label>Location:</label><input ng-model="new_location">
+			<br>
+			<label>Bio:</label><input ng-model="new_bio">
+			<!-- <label>Avatar:</label><input ng-model="new_image"> -->
+			<button ng-click="addComposer()">Add</button>
+		</div>
+
 		<ul>
 			<li ng-repeat="composer in composers | filter:searchComposer">
 				<span>{{composer.f_name}}</span>
 				<span>{{composer.l_name}}</span>
 				<span>{{composer.location}}</span>
 				<span>{{composer.bio}}</span>
-				<span><img src="img/{{composer.f_name}}.jpg"></span>
+				<span><img ng-src="img/{{composer.f_name}}.jpg"></span>
 			</li>
 		</ul>
 
@@ -60,9 +70,25 @@
 			{f_name: "Craig", l_name: "Isaia", location: "Ascot", bio: "Plays the bongos"},
 			{f_name: "Oli", l_name: "Nako", location: "Addlestone", bio: "Likes rock climbing"}
 		];
+		// console.log($scope.composers);
 
-		console.log($scope.composers);
 
+		$scope.addComposer = function () {
+			$scope.composers.push({
+				f_name: 	$scope.new_f_name,
+				l_name: 	$scope.new_l_name,
+				location: 	$scope.new_location,
+				bio: 		$scope.new_bio,
+				// image: 		$scope.new_image
+			});
+			$scope.new_f_name = "";
+			$scope.new_l_name = "";
+			$scope.new_location = "";
+			$scope.new_bio = "";
+			// $scope.new_image = "";
+
+			console.log("added a composer");
+		};
 
 		$scope.$watch('searchComposer', function (){
 			console.log($scope.searchComposer);

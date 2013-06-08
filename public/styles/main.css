@@ -54,6 +54,25 @@ header{
 	margin:20px auto;
 }
 
+.composer-form{
+	width:100%;
+	min-height:80px;
+	background-color: #ddd;
+	border-radius: 5px;
+	border:1px solid #ccc;
+	margin-bottom:20px;
+	padding:15px 20px 0;
+	float:left;
+}
+
+.composer-form input{
+	margin-right: 20px;
+}
+
+.composer-form input, .composer-form label{
+	margin-bottom: 15px;
+}
+
 ul{
 	width:100%;	
 	float:left;
