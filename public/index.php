@@ -21,7 +21,7 @@
 
 			<h1>Composers</h1>
 
-			<h2>: {{searchComposer}}</h2>
+			<h2>: {{searchComposer || "search them"}}</h2>
 
 			<div id="search-box"
 				<label>Search:</label>
@@ -43,28 +43,6 @@
 				<span>bio</span>
 				<span>image</span>
 			</li>
-			
-<!-- 			<li>
-				<span>f_name</span>
-				<span>l_name</span>
-				<span>location</span>
-				<span>bio</span>
-				<span>image</span>
-			</li>
-			<li>
-				<span>f_name</span>
-				<span>l_name</span>
-				<span>location</span>
-				<span>bio</span>
-				<span>image</span>
-			</li>
-			<li>
-				<span>f_name</span>
-				<span>l_name</span>
-				<span>location</span>
-				<span>bio</span>
-				<span>image</span>
-			</li> -->
 		</ul>
 
 
@@ -74,7 +52,15 @@
 	<script>
 
 	var composerCtrl = function ($scope) {
+
 		$scope.composerName = "Russell";
+
+		console.log($scope.composerName);
+
+
+		$scope.$watch('searchComposer', function (){
+			console.log($scope.searchComposer);
+		});
 	};
 
 
