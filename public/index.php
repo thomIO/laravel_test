@@ -1,62 +1,87 @@
-<?php
-/**
- * Laravel - A PHP Framework For Web Artisans
- *
- * @package  Laravel
- * @author   Taylor Otwell <taylorotwell@gmail.com>
- */
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<title>Angular JS Test - Composer List</title>
 
-/*
-|--------------------------------------------------------------------------
-| Register The Auto Loader
-|--------------------------------------------------------------------------
-|
-| Composer provides a convenient, automatically generated class loader
-| for our application. We just need to utilize it! We'll require it
-| into the script here so that we do not have to worry about the
-| loading of any our classes "manually". Feels great to relax.
-|
-*/
+<!-- refresh browser for developing -->
+<!-- <meta http-equiv="refresh" content="3" /> -->
 
-require __DIR__.'/../bootstrap/autoload.php';
+<link rel="stylesheet" href="vendor/reset.css">
+<link rel="stylesheet" href="styles/main.css">
 
-/*
-|--------------------------------------------------------------------------
-| Turn On The Lights
-|--------------------------------------------------------------------------
-|
-| We need to illuminate PHP development, so let's turn on the lights.
-| This bootstrap the framework and gets it ready for use, then it
-| will load up this application so that we can run it and send
-| the responses back to the browser and delight these users.
-|
-*/
+<script src="vendor/angular.js"></script>
+<script src="scripts/script.js"></script>
 
-$app = require_once __DIR__.'/../bootstrap/start.php';
+</head>
 
-/*
-|--------------------------------------------------------------------------
-| Run The Application
-|--------------------------------------------------------------------------
-|
-| Once we have the application, we can simply call the run method,
-| which will execute the request and send the response back to
-| the client's browser allowing them to enjoy the creative
-| and wonderful applications we have created for them.
-|
-*/
+<body>
 
-$app->run();
+	<header>
+		<div class="wrap">
 
-/*
-|--------------------------------------------------------------------------
-| Shutdown The Application
-|--------------------------------------------------------------------------
-|
-| Once the app has finished running, we will fire off the shutdown events
-| so that any final work may be done by the application before we shut
-| down the process. This is the last thing to happen to the request.
-|
-*/
+			<h1>Composers</h1>
 
-$app->shutdown();
+			<h2>: {{searchComposer}}</h2>
+
+			<div id="search-box"
+				<label>Search:</label>
+				<input type="search" ng-model="searchComposer" placeholder="Search Composer">
+			</div>
+
+		</div>
+	</header>
+
+	<div id="content" ng-controller="composerCtrl">
+
+		<h3>Composer: {{composerName}} - boo yah!</h3>
+
+		<ul>
+			<li>
+				<span>f_name</span>
+				<span>l_name</span>
+				<span>location</span>
+				<span>bio</span>
+				<span>image</span>
+			</li>
+			
+<!-- 			<li>
+				<span>f_name</span>
+				<span>l_name</span>
+				<span>location</span>
+				<span>bio</span>
+				<span>image</span>
+			</li>
+			<li>
+				<span>f_name</span>
+				<span>l_name</span>
+				<span>location</span>
+				<span>bio</span>
+				<span>image</span>
+			</li>
+			<li>
+				<span>f_name</span>
+				<span>l_name</span>
+				<span>location</span>
+				<span>bio</span>
+				<span>image</span>
+			</li> -->
+		</ul>
+
+
+	</div> <!-- . content -->
+
+
+	<script>
+
+	var composerCtrl = function ($scope) {
+		$scope.composerName = "Russell";
+	};
+
+
+
+	</script>
+
+
+</body>
+
+</html>
