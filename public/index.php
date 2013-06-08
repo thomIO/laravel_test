@@ -33,15 +33,15 @@
 
 	<div id="content" ng-controller="composerCtrl">
 
-		<h3>Composer: {{composerName}} - boo yah!</h3>
+		<h3>Composer: {{searchComposer}}</h3>
 
 		<ul>
-			<li>
-				<span>f_name</span>
-				<span>l_name</span>
-				<span>location</span>
-				<span>bio</span>
-				<span>image</span>
+			<li ng-repeat="composer in composers | filter:searchComposer">
+				<span>{{composer.f_name}}</span>
+				<span>{{composer.l_name}}</span>
+				<span>{{composer.location}}</span>
+				<span>{{composer.bio}}</span>
+				<span><img src="img/{{composer.f_name}}.jpg"></span>
 			</li>
 		</ul>
 
@@ -53,9 +53,15 @@
 
 	var composerCtrl = function ($scope) {
 
-		$scope.composerName = "Russell";
+		$scope.composers = [
+			{f_name: "Russ", l_name: "Boad", location: "Binfield", bio: "A gamer and google fan."},
+			{f_name: "Thom", l_name: "Earls", location: "Maidenhead", bio: "A designer and machead."},
+			{f_name: "Tarek", l_name: "Karaman", location: "Marlow", bio: "A musician and veggie."},
+			{f_name: "Craig", l_name: "Isaia", location: "Ascot", bio: "Plays the bongos"},
+			{f_name: "Oli", l_name: "Nako", location: "Addlestone", bio: "Likes rock climbing"}
+		];
 
-		console.log($scope.composerName);
+		console.log($scope.composers);
 
 
 		$scope.$watch('searchComposer', function (){
