@@ -41,8 +41,8 @@ var composerCtrl = function ($scope) {
 			console.log("removed selected composer");
 		};
 
-/* search */
-		$scope.$watch('searchComposer', function (){
+/* search log */
+		$scope.$watch('search_composer', function (){
 			console.log($scope.searchComposer);
 		});
 };

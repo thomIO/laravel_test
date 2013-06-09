@@ -21,11 +21,11 @@
 
 			<h1>Composers</h1>
 
-			<h2>: {{searchComposer || "search them"}}</h2>
+			<h2>: {{search_composer || "search them"}}</h2>
 
 			<div id="search-box"
 				<label>Search:</label>
-				<input type="search" ng-model="searchComposer" placeholder="Search Composer">
+				<input type="search" ng-model="search_composer" placeholder="Search Composer">
 			</div>
 
 		</div>
@@ -33,7 +33,14 @@
 
 	<div id="content" ng-controller="composerCtrl">
 
-		<h3>Composer count: {{composers.length}} - {{searchComposer}}</h3>
+		<div class="list-info">
+			<h3>Composer count: {{composers.length}} --</h3>
+			<select ng-model="selected_composer" 
+					ng-options="composer.f_name + ' ' + composer.l_name for composer in composers | filter:search_composer">
+				<option value="">Select Composer:</option>
+			</select>
+			<h3>-- {{selected_composer.bio | lowercase}}</h3>
+		</div>
 
 		<div class="composer-form">
 			<label>First Name:</label><input ng-model="new_f_name">
@@ -54,7 +61,7 @@
 				<span>Image - <label>hide : </label><input type="checkbox" ng-model="hideImage"></span>
 			</li>
 
-			<li ng-repeat="composer in composers | orderBy:predicate:reverse | filter:searchComposer" 
+			<li ng-repeat="composer in composers | orderBy:predicate:reverse | filter:selected_composer | filter:search_composer" 
 				ng-mouseenter="trashShow = true" 
 				ng-mouseleave="trashShow = false">
 				<span>{{$index + 1}} - {{composer.f_name || 'no-name'}}</span>

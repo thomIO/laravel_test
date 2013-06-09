@@ -54,6 +54,11 @@ header{
 	margin:20px auto;
 }
 
+div.list-info > *{
+	float:left;
+
+}
+
 .composer-form{
 	width:100%;
 	min-height:80px;
