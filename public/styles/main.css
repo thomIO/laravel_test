@@ -89,8 +89,42 @@ ul li{
 	float:left;
 }
 
+ul li.list-header button{
+    background  : none;
+    cursor  : pointer;
+    font-family : verdana;
+    font-size   : 16px;
+    color   : orange;
+    border  : none;
+    margin      : 0px;
+    padding     : 0px;
+}
+
+ul li.list-header button:hover{
+    text-decoration: underline;
+}
+
 ul li span{
 	width: 20%;
 	display:block;
 	float:left;
+}
+
+button.trash-btn{
+	background-image: url('../img/trash.png');
+	background-color: transparent;
+	border: none;
+	width:32px;
+	height:32px;
+	text-indent: -9999px;
+    cursor  : pointer;
+    font-size   : 16px;
+    margin      : 0px;
+    padding     : 0px;
+    float:right;
+    opacity:0.5;
+}
+
+button.trash-btn:hover{
+	opacity: 1;
 }
